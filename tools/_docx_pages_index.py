@@ -32,7 +32,27 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
 LIT = Path(lit_dir())
 OUTDIR = Path(__file__).resolve().parent / "_docx_pages"
-PDF_PAGES = {2: None, 3: 764, 6: 1033, 7: 1050, 8: 1181}
+
+
+def _pdf_pages() -> dict[int, int | None]:
+    """各卷 PDF 页数（只用于打印对照，不参与任何判断）。
+
+    从环境变量 `LITDB_PDF_PAGES` 给，形如 `2:None,3:764,6:1033`；不给就显示「未知」。
+    各卷页数是具体项目的实测指纹，不写进源码。
+    """
+    out: dict[int, int | None] = {}
+    for item in os.environ.get("LITDB_PDF_PAGES", "").split(","):
+        if ":" not in item:
+            continue
+        k, v = item.split(":", 1)
+        try:
+            out[int(k.strip())] = int(v) if v.strip().isdigit() else None
+        except ValueError:
+            pass
+    return out
+
+
+PDF_PAGES = _pdf_pages()
 
 SECT = re.compile(r"<w:sectPr\b.*?</w:sectPr>", re.S)
 HREF = re.compile(r'<w:headerReference\b[^>]*r:id="([^"]+)"')
