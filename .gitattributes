@@ -1,0 +1,21 @@
+# 统一换行符：仓库内存 LF，检出时按平台自动转换。
+# 这些是 Python 脚本与 Markdown，跨平台用 LF 最稳。
+* text=auto eol=lf
+
+# 二进制文件不要做换行转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.pdf  binary
+*.docx binary
+*.xlsx binary
+*.zip  binary
+
+# Windows 批处理/PowerShell 保留 CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# 让 git 在 diff 里把 Markdown 当文本，且不要把整文件标成"已改"
+*.md   text eol=lf diff=markdown

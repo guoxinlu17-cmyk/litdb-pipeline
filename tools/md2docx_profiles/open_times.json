@@ -1,0 +1,111 @@
+{
+  "profile_id": "open_times",
+  "display_name": "开放时代",
+  "typography": {
+    "status": "unknown",
+    "reason": "该刊官方《体例规范》与《投稿须知》均不规定字体、字号、行距、页边距；故排版层沿用 default 档，不猜。",
+    "inherit_from": "default"
+  },
+  "notes": {
+    "form": "endnote",
+    "number_format": "decimal",
+    "restart": "continuous",
+    "pending_review": false
+  },
+  "figures": {
+    "caption_position": "above",
+    "numbering": "continuous",
+    "color": "grayscale",
+    "max_width_cm": null
+  },
+  "elements": {
+    "abstract_max_chars": 350,
+    "keywords_min": 3,
+    "keywords_max": 5,
+    "anonymize_body": true
+  },
+  "headings": {
+    "numbering": ["一", "（一）", "1．", "（1）"],
+    "source": "官方体例规范 一（四）"
+  },
+  "punctuation": {
+    "mode": "report",
+    "exempt_quotes": true,
+    "citation_bracket_width": "half",
+    "range_dash": "～",
+    "ellipsis_en": "three_dots",
+    "dash_en": "en_dash_spaced"
+  },
+  "evidence": [
+    {
+      "claim": "内容提要不超过350字；关键词为3～5个",
+      "source": "《开放时代》体例规范 一（三）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "中文尾注：序号用阿拉伯数字，整篇连续编号",
+      "source": "《开放时代》体例规范 二（脚注①：序号用阿拉伯数字，整篇连续编号）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "各级小标题的序号依次为：一/（一）/1/（1）",
+      "source": "《开放时代》体例规范 一（四）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "图表标题用阿拉伯数字连续编号（表1、图1），置于图表上方；图表均为黑白效果；表格一律使用「田」字型表格",
+      "source": "《开放时代》体例规范 一（五）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "夹注用括号标明，可加页码；只列举与夹注对应的参考文献，置于尾注之前",
+      "source": "《开放时代》体例规范 四（一）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "数字标点遵 GB/T 15835-1995 与 GB/T 15834-1995；数值范围用浪纹式连接号「～」（例 63%～68%）；纯小数不得省略小数点前的 0；年份不得简写",
+      "source": "《开放时代》体例规范 五（一）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "英文标点一律使用半角；英文省略号为一排三个点、前后均不空格；英文破折号相当于两个英文连字符（–）、前后均空格",
+      "source": "《开放时代》体例规范 五（二）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "来稿应包含标题、署名、内容提要（350字以内）、关键词（3—5个）、正文、注释、个人信息；正文匿名（匿名审稿要求正文不出现作者信息）",
+      "source": "《开放时代》投稿须知 第四条 + 第二条（推行匿名审稿制度）",
+      "url": "http://www.opentimes.cn/About/Tips/index.html",
+      "evidence_level": "A",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "英文夹注实例「（Wrigley & Schofield, 1989 [1981]）」提取为半角逗号与半角方括号",
+      "source": "《开放时代》体例规范 四（一）1 示例（由官方 PDF 提取文本判断）",
+      "url": "http://www.opentimes.cn/UploadFiles/File/201708/63639535138954083369702.pdf",
+      "evidence_level": "A（待复核：全/半角需码位确认）",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "所据体例规范为 2017 版（PDF 路径 /UploadFiles/File/201708/），是否为现行版本未确认",
+      "source": "体例规范 PDF 文件路径与投稿须知页 CopyRight © 2017",
+      "url": "http://www.opentimes.cn/About/Tips/index.html",
+      "evidence_level": "待复核",
+      "verified_date": "2026-09-25"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "profile_id": "sociology_studies",
+  "display_name": "社会学研究",
+  "typography": {
+    "status": "unknown",
+    "reason": "未获该刊本部稿约；所据为《社会学评论》对「与《社会学研究》大致协调一致」的陈述，其中不含字体字号规定。排版层沿用 default 档，不猜。",
+    "inherit_from": "default"
+  },
+  "notes": {
+    "form": "footnote",
+    "number_format": null,
+    "restart": "eachPage",
+    "pending_review": true,
+    "pending_reason": "注释序号样式（阿拉伯数字/①②③）未见于 B 级来源，暂按 decimal 输出，投稿前须以该刊样刊或本部稿约核对"
+  },
+  "reference_list": {
+    "position": "after_body",
+    "order": "中文文献在前、英文文献在后；按第一作者姓氏字母/拼音排序",
+    "source": "《社会学评论》注释体例说明"
+  },
+  "headings": {
+    "numbering": ["（题名居中）", "一、", "（一）"],
+    "level2_align": "center",
+    "level3_indent_chars": 2,
+    "source": "《社会学评论》注释体例说明（文内标题规则）"
+  },
+  "elements": {
+    "abstract_max_chars": null,
+    "keywords_min": null,
+    "keywords_max": null,
+    "anonymize_body": null,
+    "note": "字数、摘要上限、关键词个数、匿名化要求均未见公开来源，不作假设"
+  },
+  "punctuation": {
+    "mode": "report",
+    "exempt_quotes": true,
+    "citation_bracket_width": "full"
+  },
+  "evidence": [
+    {
+      "claim": "在引文后加括号注明作者、出版年份及页码；更详细的对应文献出处作为参考文献列于全文之后、英文标题摘要关键词之前；以作者、出版年份、书名（或文章名）、译者、出版地点、出版单位排序",
+      "source": "《社会学评论》注释体例说明（该页声明：自2015年第四期起与《社会学研究》《社会发展研究》等专业期刊大致协调一致）",
+      "url": "http://src.ruc.edu.cn/CN/news/news14.shtml",
+      "evidence_level": "B",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "作者本人的注释均采用当页脚注，每页重新编号，不再使用任何尾注形式",
+      "source": "《社会学评论》注释体例说明",
+      "url": "http://src.ruc.edu.cn/CN/news/news14.shtml",
+      "evidence_level": "B",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "夹注括号及其中的标点符号统一用全角，对于英文文献也是如此（例：（Coase，1960：40））",
+      "source": "《社会学评论》注释体例说明",
+      "url": "http://src.ruc.edu.cn/CN/news/news14.shtml",
+      "evidence_level": "B",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "文献按第一作者姓氏的第一个字母依A-Z顺序分中、英文两部分排列，中文文献在前，英文文献在后",
+      "source": "《社会学评论》注释体例说明",
+      "url": "http://src.ruc.edu.cn/CN/news/news14.shtml",
+      "evidence_level": "B",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "文章题目为一级标题居中；二级用编号一、二、三……居中；三级标题用（一）（二）（三）……左缩进两格；文内标题、表格、图、公式分别连续编号",
+      "source": "《社会学评论》注释体例说明",
+      "url": "http://src.ruc.edu.cn/CN/news/news14.shtml",
+      "evidence_level": "B",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "本档证据为「他刊对与该刊协调一致的陈述」，非《社会学研究》本部稿约；须以本部稿约或近期样刊复核后方可视为该刊要求",
+      "source": "设计定稿与实施单 §4.2、§7.2、§8（E-1）",
+      "url": null,
+      "evidence_level": "待复核",
+      "verified_date": "2026-09-25"
+    }
+  ]
+}

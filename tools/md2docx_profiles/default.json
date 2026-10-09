@@ -1,0 +1,88 @@
+{
+  "profile_id": "default",
+  "display_name": "中文论文默认版式",
+  "typography": {
+    "status": "known",
+    "reason": "沿用 md2docx_unified 自 2026-09 起的现行中文论文版式，未作改动",
+    "page": {
+      "width_cm": 21.0,
+      "height_cm": 29.7,
+      "margin_top_cm": 2.54,
+      "margin_bottom_cm": 2.54,
+      "margin_left_cm": 3.17,
+      "margin_right_cm": 3.17
+    },
+    "fonts": {
+      "body":    { "ascii": "Times New Roman", "hAnsi": "Times New Roman", "eastAsia": "宋体",   "cs": "Times New Roman", "hint": "eastAsia" },
+      "heading": { "ascii": "Times New Roman", "hAnsi": "Times New Roman", "eastAsia": "黑体",   "cs": "Times New Roman", "hint": "eastAsia" },
+      "mono":    { "ascii": "Consolas",        "hAnsi": "Consolas",        "eastAsia": "宋体",   "cs": "Consolas",        "hint": "eastAsia" },
+      "note":    { "ascii": "Times New Roman", "hAnsi": "Times New Roman", "eastAsia": "宋体",   "cs": "Times New Roman", "hint": "eastAsia" }
+    },
+    "sizes_pt": { "body": 12.0, "h1": 16.0, "h2": 14.0, "h3": 12.0, "code": 9.0, "note": 9.0 },
+    "heading_bold": true,
+    "line_spacing": { "mode": "multiple", "value": 1.5 },
+    "first_line_indent_chars": 2.0,
+    "east_asian": {
+      "kinsoku": true,
+      "word_wrap": true,
+      "overflow_punct": true,
+      "top_line_punct": false,
+      "auto_space_de": true,
+      "auto_space_dn": true
+    },
+    "doc_grid": { "mode": "keep" }
+  },
+  "notes": {
+    "form": "footnote",
+    "number_format": "decimal",
+    "restart": "continuous",
+    "pending_review": false
+  },
+  "figures": {
+    "caption_position": "below",
+    "numbering": "continuous",
+    "color": "original",
+    "max_width_cm": null
+  },
+  "elements": {
+    "abstract_max_chars": null,
+    "keywords_min": null,
+    "keywords_max": null,
+    "anonymize_body": false
+  },
+  "punctuation": {
+    "mode": "report",
+    "exempt_quotes": true
+  },
+  "fonts_preflight": {
+    "on_missing": "warn",
+    "aliases": {
+      "宋体": "SimSun",
+      "黑体": "SimHei",
+      "楷体": "KaiTi",
+      "仿宋": "FangSong",
+      "微软雅黑": "Microsoft YaHei",
+      "等线": "DengXian",
+      "方正书宋": "FZShuSong",
+      "方正小标宋简体": "FZXiaoBiaoSong-B05S",
+      "仿宋_GB2312": "FangSong_GB2312",
+      "楷体_GB2312": "KaiTi_GB2312"
+    }
+  },
+  "evidence": [
+    {
+      "claim": "页面与字体字号、行距、首行缩进 2 字符、标题黑体分级（三号/四号/小四）",
+      "source": "md2docx_unified.py 现行实现（本工具自身既有默认值），非期刊要求",
+      "url": null,
+      "evidence_level": "本机实现",
+      "verified_date": "2026-09-25"
+    },
+    {
+      "claim": "heading_bold 默认 true = 维持既有输出（黑体 + 加粗）",
+      "source": "决策 D-2 待定（设计定稿与实施单 §4.3.5、§8）：中文排版惯例为黑体不加粗，但无期刊明文，故默认不改动既有行为",
+      "url": null,
+      "evidence_level": "惯例（无明文）",
+      "verified_date": "2026-09-25"
+    }
+  ]
+}

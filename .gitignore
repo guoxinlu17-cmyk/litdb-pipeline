@@ -1,0 +1,35 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- 本工具链的运行时产物 ----
+# 工具在你机器上跑出来的东西，不应进版本库
+_docx_pages/
+*.bak-*
+*.PAGES.md
+*.layout.json
+*.quality.md
+*自检报告*.md
+
+# ---- 你的项目数据（切勿提交）----
+# 文献库素材、扫描件、OCR 产物、题录库、论文稿
+# 这些通常不在本仓库内，但若你把项目建在仓库旁边，用下面几行兜住：
+.kb/
+01_文献/
+03_论文/
+05_文献数据库/
+项目布局.json
+素材清单*.csv
+引文页码候选.csv
+无扫描卷页码候选.csv
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
