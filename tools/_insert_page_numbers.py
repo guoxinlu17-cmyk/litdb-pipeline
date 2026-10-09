@@ -26,8 +26,8 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _cite_page_candidates as C  # noqa: E402
 
-from _paths import db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = Path(db_dir())
+from _paths import LazyPath, db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(db_dir)
 PAPERS = {p.stem: p for p in C.DEFAULT_PAPERS}
 
 # ── 人工登记的「线索页码」 ────────────────────────────────────────────────

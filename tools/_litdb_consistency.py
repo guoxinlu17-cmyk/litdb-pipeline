@@ -24,9 +24,9 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 # 资料库目录**不写死**：交给同目录的 _paths.py 解析（参数 → 环境变量 → 项目布局.json
 # → 结构探测 → 报错）。换电脑/改目录名时不必再改这个脚本。
 sys.path.insert(0, str(Path(__file__).resolve().parent))   # 被 import 时也能找到 _paths
-from _paths import db_dir  # noqa: E402
+from _paths import LazyPath, db_dir  # noqa: E402
 
-D = db_dir(strict=False)
+D = LazyPath(lambda: db_dir(strict=False))
 if D is None:
     raise SystemExit(
         "解析不出「05_文献数据库」目录。请用环境变量 LITDB_DBDIR 或 LITDB_PROJECT 指定，"

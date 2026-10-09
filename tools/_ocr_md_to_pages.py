@@ -27,8 +27,8 @@ import _page_number as PN  # noqa: E402  偏移量自动标定
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
 TOOLKIT = Path(__file__).resolve().parent
-from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = Path(lit_dir())
+from _paths import LazyPath, lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
 # 兜底偏移（仅当自动标定失败且未手工指定时使用；正常路径一律走 _page_number 自动标定）
 FALLBACK_OFFSETS = {1: 7, 4: 7, 5: 13}
 NAMES = {1: "第1卷", 4: "第4卷", 5: "第5卷"}

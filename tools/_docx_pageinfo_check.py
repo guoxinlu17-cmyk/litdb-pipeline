@@ -13,8 +13,8 @@ import zipfile
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = lit_dir()
+from _paths import LazyPath, lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
 PDF_PAGES = {1: 727, 2: None, 3: 764, 4: 924, 5: 1066, 6: 1033, 7: 1050, 8: 1181}
 
 for vol in (2, 3, 6, 7, 8):

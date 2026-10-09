@@ -12,10 +12,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = Path(db_dir())
-
-
+from _paths import LazyPath, db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(db_dir)
 def num(s: str) -> str:
     m = re.search(r"(\d+)", s or "")
     return m.group(1) if m else ""

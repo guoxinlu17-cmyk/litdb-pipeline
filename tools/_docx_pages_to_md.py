@@ -35,8 +35,8 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
 TOOLKIT = Path(__file__).resolve().parent
-from _paths import lit_dir  # 同目录共享模块
-LIT = Path(lit_dir())
+from _paths import LazyPath, lit_dir  # 同目录共享模块
+LIT = LazyPath(lit_dir)
 PAGES_DIR = TOOLKIT / "_docx_pages"
 
 HEADER = """# {corpus} 第{vol}卷（按页重建，带印刷页码）

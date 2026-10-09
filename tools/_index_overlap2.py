@@ -17,11 +17,11 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 # 三个目录都**不写死**：交给同目录的 _paths.py 解析（参数 → 环境变量 →
 # 项目布局.json → 结构探测 → 报错）。换电脑/改目录名时不必改这个脚本。
 sys.path.insert(0, str(Path(__file__).resolve().parent))   # 被 import 时也能找到 _paths
-from _paths import db_dir, kb_sqlite, lit_dir  # noqa: E402
+from _paths import LazyPath, db_dir, kb_sqlite, lit_dir  # noqa: E402
 
-DBD = db_dir(strict=False)
-KB = kb_sqlite(strict=False)
-LIT = lit_dir(strict=False)
+DBD = LazyPath(lambda: db_dir(strict=False))
+KB = LazyPath(lambda: kb_sqlite(strict=False))
+LIT = LazyPath(lambda: lit_dir(strict=False))
 _missing = [n for n, v in (("db", DBD), ("kb", KB), ("lit", LIT)) if v is None]
 if _missing:
     raise SystemExit(

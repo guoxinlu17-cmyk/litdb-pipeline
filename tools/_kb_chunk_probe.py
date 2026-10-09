@@ -5,8 +5,8 @@ import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from _paths import kb_sqlite  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = kb_sqlite()
+from _paths import LazyPath, kb_sqlite  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(kb_sqlite)
 TARGET = "探索主体性"
 
 conn = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)

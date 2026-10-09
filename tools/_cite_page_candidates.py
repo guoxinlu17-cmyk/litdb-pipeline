@@ -34,9 +34,9 @@ import _quote_spans as Q  # noqa: E402
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import db_dir, lit_dir, papers_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = Path(lit_dir())
-DEFAULT_OUT = Path(db_dir())
+from _paths import LazyPath, db_dir, lit_dir, papers_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
+DEFAULT_OUT = LazyPath(db_dir)
 DEFAULT_PAPERS = [
     Path(papers_dir() / "sample-paper-a.md"),
     Path(papers_dir() / "sample-paper-b.md"),

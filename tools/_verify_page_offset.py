@@ -18,8 +18,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = Path(lit_dir())
+from _paths import LazyPath, lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
 OFFSETS = {"第1卷": 7, "第4卷": 7, "第5卷": 13}
 PAGE_SPLIT = re.compile(r"^--- 第 (\d+) 页 ---$", re.MULTILINE)
 CJK = "\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff"

@@ -64,6 +64,63 @@ class PathError(RuntimeError):
     """路径解析失败。消息里必须列出**试过的全部来源**，便于排障。"""
 
 
+class LazyPath:
+    """延迟解析的路径：**第一次真正用到时**才调用 resolver。
+
+    为什么需要它
+    ------------
+    很多工具把解析结果写成模块级常量，例如 `LIT = Path(lit_dir())`。
+    那样一写，**import 这个模块就会立刻解析路径**——于是没配置项目时，
+    连 `--help` 都跑不起来（在 argparse 之前就抛 PathError）。
+
+    改用 `LIT = LazyPath(lit_dir)` 后，解析推迟到第一次使用；
+    `--help`、`--version` 这些不碰路径的调用就正常了。
+
+    它只代理 Path 的常用行为（`/`、属性、`str()`、`os.fspath()`、比较、迭代）。
+    如果一个工具在**模块级真的去读写文件**（而不是只定义常量），
+    那它仍然需要配置——这是设计使然，不是这个类能解决的问题。
+    """
+
+    __slots__ = ("_fn", "_v", "_err")
+
+    def __init__(self, fn):
+        object.__setattr__(self, "_fn", fn)
+        object.__setattr__(self, "_v", None)
+        object.__setattr__(self, "_err", None)
+
+    @property
+    def _val(self) -> Path:
+        if self._v is None:
+            object.__setattr__(self, "_v", Path(self._fn()))
+        return self._v
+
+    # —— 路径运算 ——
+    def __truediv__(self, other):        return self._val / other
+    def __rtruediv__(self, other):       return other / self._val
+    def __fspath__(self):                return str(self._val)
+
+    # —— 表示 ——
+    def __str__(self):                   return str(self._val)
+    def __repr__(self):                  return f"LazyPath({self._val!r})"
+    def __format__(self, spec):          return format(str(self._val), spec)
+
+    # —— 比较 / 哈希 / 容器 ——
+    def __eq__(self, other):             return self._val == other
+    def __ne__(self, other):             return self._val != other
+    def __lt__(self, other):             return self._val < other
+    def __hash__(self):                  return hash(self._val)
+    def __bool__(self):                  return bool(self._val)
+    def __iter__(self):                  return iter(self._val)
+    def __len__(self):                   return len(self._val)
+    def __getitem__(self, k):            return self._val[k]
+    def __contains__(self, k):           return k in self._val
+
+    # —— 其余交给真正的 Path ——
+    def __getattr__(self, name):
+        return getattr(self._val, name)
+
+
+
 def _fail(what: str, tried: list[str], extra: str = "") -> None:
     raise PathError("%s 解析失败。已尝试：\n  - %s\n%s"
                     "请用命令行参数、环境变量，或把目录放到约定的位置。"

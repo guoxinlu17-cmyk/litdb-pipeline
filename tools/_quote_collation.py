@@ -22,10 +22,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _cite_page_candidates as C  # noqa: E402
 import _quote_spans as Q  # noqa: E402
 
-from _paths import db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = Path(db_dir())
-
-
+from _paths import LazyPath, db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(db_dir)
 def main() -> int:
     rows = list(csv.DictReader(io.open(DB / "引文页码候选.csv", encoding="utf-8-sig")))
     # 重新抽取完整引文（CSV 里截断到 60 字）

@@ -7,11 +7,11 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from _paths import toolkit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+from _paths import LazyPath, toolkit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-T = Path(toolkit_dir())
+T = LazyPath(toolkit_dir)
 SINCE = datetime(2026, 9, 13, 0, 0)
 
 

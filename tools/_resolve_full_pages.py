@@ -30,8 +30,8 @@ import _quote_spans as Q  # noqa: E402
 
 TOOLKIT = Path(__file__).resolve().parent
 PAGES_DIR = TOOLKIT / "_docx_pages"
-from _paths import db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = Path(db_dir())
+from _paths import LazyPath, db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(db_dir)
 VOLS = (2, 3, 6, 7, 8)
 DROP = set("…\u2026 \t\r\n\u3000，。、；：（）《》“”‘’\"'.,;:()[]【】·—–-！？!?／/｜|　")
 

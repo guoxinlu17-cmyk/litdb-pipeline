@@ -29,8 +29,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = Path(lit_dir())
+from _paths import LazyPath, lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
 OUTDIR = Path(__file__).resolve().parent / "_docx_pages"
 
 

@@ -12,8 +12,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import kb_sqlite  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DB = kb_sqlite()
+from _paths import LazyPath, kb_sqlite  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DB = LazyPath(kb_sqlite)
 conn = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
 conn.row_factory = sqlite3.Row
 Q = lambda sql, *a: conn.execute(sql, a).fetchone()[0]

@@ -15,10 +15,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DBD = Path(db_dir())
-
-
+from _paths import LazyPath, db_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DBD = LazyPath(db_dir)
 def head(path: Path, n: int = 120) -> str:
     return path.read_text(encoding="utf-8", errors="replace")[:n].replace("\n", " ⏎ ")
 

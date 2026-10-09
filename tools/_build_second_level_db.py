@@ -27,10 +27,9 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import db_dir, kb_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-DEFAULT_KB = kb_dir()
-DEFAULT_OUT = db_dir()
-
+from _paths import LazyPath, db_dir, kb_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+DEFAULT_KB = LazyPath(kb_dir)
+DEFAULT_OUT = LazyPath(db_dir)
 # 参考文献/注释类章节的信号词
 REF_SECTION = re.compile(r"参考文献|注释|引用|书目|references|bibliography|notes|征引", re.IGNORECASE)
 

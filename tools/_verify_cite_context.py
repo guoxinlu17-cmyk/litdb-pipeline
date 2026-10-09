@@ -12,8 +12,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace", line_buffering=True)
 
-from _paths import lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
-LIT = Path(lit_dir())
+from _paths import LazyPath, lit_dir  # 同目录共享模块（_toolkit 在 ignore_dirs 内，不进索引）
+LIT = LazyPath(lit_dir)
 CORPUS = os.environ.get("LITDB_CORPUS", "文集")   # 文集名，如「某某全集」
 
 # 用例从**外部 JSON** 读：(卷, 印刷页, 论文里的标注, 引文片段)

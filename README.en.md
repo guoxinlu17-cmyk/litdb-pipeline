@@ -245,10 +245,11 @@ protocol:
 
 ## Known limitations
 
-1. **25 of the 44 tools resolve paths at import time**, so without a configured project even
-   `--help` raises `PathError` (measured: 19 usable / 25 blocked). Direct consequence of
-   "fail loudly rather than guess". Configure first (Step 3) or just run
-   `python run_selftests.py`.
+1. **17 of the 44 tools cannot run without a configured project** (measured: `--help` works for
+   27, blocked for 17). Path resolution is now **lazy** (`LazyPath` — resolved on first use), so
+   calls like `--help` no longer trigger it; the remaining blocked ones are audit tools that read
+   the database **at module level** — they genuinely cannot work without one. Configure first
+   (Step 3) or just run `python run_selftests.py`.
 
 2. **Most tools are bound to a project structure** and are not drop-in general-purpose components.
    Reuse means *reusing the flow and the reasoning, plus parameterising scripts as needed*.
